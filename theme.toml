@@ -1,13 +1,13 @@
 # theme.toml template for a Hugo theme
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
-name = "Lanyon"
+name = "hugoLanyon"
 license = "MIT"
 licenselink = "https://github.com/lupsa/hugoLanyon"
-description = ""
+description = "Lanyon is an unassuming Jekyll theme, now ported to Hugo, that places content first by tucking away navigation in a hidden drawer."
 homepage = ""
-tags = []
-features = []
+tags = ["blog", "clean", "responsive", "minimalist", "fast", "search", "gallery", "google analytics"]
+features = ["gallery", "search", "google analytics"]
 min_version = "0.41.0"
 
 [author]

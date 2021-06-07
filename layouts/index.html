@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{ .Content }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "blog") }}
+{{ range $paginator.Pages }}
+<div class="posts">
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{.Permalink}}">{{.Title}}</a>
+    </h1>
+    <time class="post-date" datetime='{{ .Date.Format `2006-01-02T15:04:05Z07:00` | safeHTML }}'>
+      {{ partial "publishdate.html" (dict "context" . "month_format" "long")}}
+    </time>
+  <p>{{.Summary}}{{ if .Truncated}}[...]{{ end}}</p>
+  </div>
+</div>
+{{ end}}
+{{ partial "pagination.html" .}}
+{{ end}}

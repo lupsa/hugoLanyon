@@ -1,0 +1,26 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>{{ .Site.Params.description | markdownify}}</p>
+  </div>
+  <nav class="sidebar-nav">
+    {{ if .Site.Params.home_menu }}
+    <a class="sidebar-nav-item" href="{{ "/" | relURL }}">{{ with .Site.Params.home_menu_name }}{{ .}}{{else}}{{ i18n "home_menu_name"}}{{ end}} </a>
+    {{- end}}
+    {{ range .Site.Menus.main }}
+      <a class="sidebar-nav-item" href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
+    {{ with .Site.Params.sidebar_bottom_description }}
+    <span class="sidebar-nav-item">{{ . | markdownify}}</span>
+    {{ end}}
+  </nav>
+  <div class="sidebar-item">
+    <p>
+      &copy; {{ now.Format "2006"}}. {{ i18n "rights_notice"}}.
+    </p>
+  </div>
+</div>

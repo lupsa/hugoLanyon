@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+  {{ if eq .Type "blog" }}
+    <div class="post">
+      <h1 class="post-title">{{ .Title }}</h1>
+      <time class="post-date" datetime='{{ .Date.Format `2006-01-02T15:04:05Z07:00` | safeHTML }}'>
+        {{ partial "publishdate.html" (dict "context" . "month_format" "long")}}
+      </time>
+      {{ .Content }}
+      {{ range (.GetTerms "tags") }}
+        <a class="tags" href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
+      {{ end }}
+      {{ partial "related.html" . }}
+    </div>
+  {{ end }}
+
+  {{ if eq .Type "page" }}
+    <div class="page">
+      <h1 class="page-title">{{ .Title }}</h1>
+        {{ .Content }}
+    </div>
+  {{ end }}
+
+{{ end }}

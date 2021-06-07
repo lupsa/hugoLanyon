@@ -1,0 +1,17 @@
+<!-- Code starts here -->
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+{{ $.Scratch.Set "dot_rendered" false }}
+<div class="pagination">
+        {{ if $pag.HasPrev }}
+          <a class="pagination-item newer" href="{{ $pag.Prev.URL }}" rel="prev">{{ i18n "pag_prev"}}</a></li>
+        {{ else}}
+          <span class="pagination-item newer">{{ i18n "pag_prev"}}</span>
+        {{ end }}
+        {{ if $pag.HasNext  }}
+          <a class="pagination-item older" href="{{ $pag.Next.URL }}" rel="next">{{ i18n "pag_next" }}</a>
+        {{ else}}
+          <span class="pagination-item older">{{ i18n "pag_next" }}</span>
+        {{ end }}
+</div>
+{{ end }}

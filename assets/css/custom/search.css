@@ -1,0 +1,40 @@
+/* search page */
+
+.search-post,
+.search-form,
+.search-form h1 {
+  padding-bottom: 1rem;
+}
+
+.search-form form {
+  width: 100%;
+}
+
+.search-form input {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0.8rem;
+  color: #515151;
+  background-color: #eee;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 1px 1px 3px #eee;
+  font-size: 1rem;
+}
+
+[data-theme="dark"] {
+  .search-form input {
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.4);
+    color: rgba(255,255,255,0.6);
+  }
+
+  .search-form input:focus {
+    background-color: rgba(0,0,0,0.1);
+  }
+}
+
+.search-form input:focus {
+  outline: none;
+  background-color: #f1f1f1;
+}

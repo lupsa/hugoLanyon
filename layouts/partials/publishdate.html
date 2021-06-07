@@ -1,0 +1,8 @@
+{{ if ne .context.Site.Language.Lang "en" }}
+  {{ $default_lang := .context.Site.Language.Lang}}
+  {{ $month := (index .context.Site.Data $default_lang).months}}
+  {{ $month := (index $month .month_format) }}
+  {{ .context.Date.Day }} {{ index $month (.context.Date.Format "1") }} {{ .context.Date.Year }}
+{{ else }}
+  {{ .context.PublishDate.Format "January 2, 2006" }}
+{{ end }}

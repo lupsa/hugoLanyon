@@ -1,0 +1,14 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400&display=swap" rel="stylesheet">
+<!-- insert css files -->
+{{- $CSSpoole := resources.Get "css/poole.css" }}
+{{- $CSSlanyon := resources.Get "css/lanyon.css" }}
+{{- $CSSsyntax := resources.Get "css/syntax.css" }}
+{{- $CSScustom := resources.Match "css/custom/**.css" | resources.Concat "custom.css"}}
+{{- $CSS := slice $CSSpoole $CSSlanyon $CSSsyntax $CSScustom | resources.Concat "main.css" }}
+{{- $CSS := $CSS | toCSS (dict "outputCSS" "compressed") | resources.Fingerprint "sha512" -}}
+<link rel="stylesheet" href="{{ $CSS.Permalink }}">
+<!-- rss feed -->
+{{- with .OutputFormats.Get "rss" -}}
+{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
