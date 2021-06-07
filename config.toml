@@ -3,4 +3,4 @@
     extended = true
     min = "0.55.0"
 [params]
-  themeVersion = "v0.1.0"
+  themeVersion = "v1.0.0"
