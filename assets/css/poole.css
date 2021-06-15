@@ -211,7 +211,7 @@ pre {
 code {
   padding: .25em .5em;
   font-size: 85%;
-  color: #bf616a;
+  color: var(--base07);
   background-color: var(--pre-background);
   border-radius: 3px;
 }
